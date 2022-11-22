@@ -1,0 +1,156 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  18. TESTIMONIAL CSS START
+/*----------------------------------------*/
+
+.testimonial{
+
+    &__slider{
+    @media #{ $xs}{
+        width: 80vw;
+        margin: auto;
+      }
+        & .owl-stage-outer{
+            overflow: visible;
+          
+        }
+        & .owl-item{
+            opacity: 0;
+            visibility: hidden;
+            @include transition(.3s);
+            &.active{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        & .owl-dots{
+            @include flexbox();
+            align-items: center;
+            position: absolute;
+            bottom: -52px;
+            left: 50%;
+            @include transform(translateX(-50%));
+            & .owl-dot{
+                margin: 0 6px;
+                width: 8px;
+                height: 8px;
+                background-color: var(--tp-grey-6);
+                @include border-radius(50%);
+
+                &.active{
+                    width: 12px;
+                    height: 12px;
+                    background-color: var(--tp-theme-2);
+                }
+            }
+        }
+    }
+    &__active{
+        &.swiper-container{
+            overflow: visible
+        }
+    }
+    &__item{
+        padding: 15px 15px 10px;
+        @include border-radius(10px);
+        height: 550px;
+
+        @media #{$sm}{
+        height: 450px;
+           
+        }
+         @media screen and (min-width:420px) and (max-width:575px) {
+        height: 450px !important;
+            
+         }
+        @media #{$xs}{
+        height: 490px;
+           
+        }
+        box-shadow:0 7px 20px -10px rgba(150,170,180,0.5);
+    }
+    &__avater{
+        margin-bottom: 10px;
+        & img{
+           
+            display: inline-block !important;
+            @include border-radius(50%);
+            width: 156px !important;
+            height: 156px;
+            
+            @media #{$sm}{
+                width: 136px !important;
+                height: 136px;
+            }
+           
+            @media #{$xs}{
+                width: 116px !important;
+                height: 116px;
+            }
+        }
+        &-info{
+            
+            & h3{
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+            & span{
+                color: var(--tp-text-11);
+            }
+        }
+    }
+    &__text{
+        & h4{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        & p{
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--tp-text-12);
+            margin-bottom: 20px;
+        }
+    }
+    &__rating{
+        & ul{
+            & li{
+                display: inline-block;
+                margin: 0 0;
+                & a{
+                    svg{
+                        fill: var(--tp-common-yellow-4) !important;
+                        width: 1.2em;
+                        height: 1.2em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.test-dc{
+    @media #{$md}{
+        width: 80%;
+       
+    }
+    @media #{$lg}{
+        width: 70%;
+       
+    }
+    @media #{$xl}{
+        width: 60%;
+       
+    }
+    @media #{$xxl}{
+        width: 50%;
+       
+    }
+    @media screen and (min-width:1601px) {
+        width: 50%;
+        
+    }
+}
+
